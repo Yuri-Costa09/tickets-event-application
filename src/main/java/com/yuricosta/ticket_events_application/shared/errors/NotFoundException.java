@@ -1,4 +1,4 @@
-package com.yuricosta.template_spring_boot.shared.errors;
+package com.yuricosta.ticket_events_application.shared.errors;
 
 public class NotFoundException extends RuntimeException {
     public NotFoundException(String message) {

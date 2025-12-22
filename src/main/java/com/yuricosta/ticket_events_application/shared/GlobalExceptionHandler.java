@@ -1,6 +1,6 @@
-package com.yuricosta.template_spring_boot.shared;
+package com.yuricosta.ticket_events_application.shared;
 
-import com.yuricosta.template_spring_boot.shared.errors.NotFoundException;
+import com.yuricosta.ticket_events_application.shared.errors.NotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

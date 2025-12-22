@@ -1,6 +1,6 @@
-package com.yuricosta.template_spring_boot.user;
+package com.yuricosta.ticket_events_application.user;
 
-import com.yuricosta.template_spring_boot.shared.errors.NotFoundException;
+import com.yuricosta.ticket_events_application.shared.errors.NotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 

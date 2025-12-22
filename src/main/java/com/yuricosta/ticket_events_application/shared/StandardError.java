@@ -1,4 +1,4 @@
-package com.yuricosta.template_spring_boot.shared;
+package com.yuricosta.ticket_events_application.shared;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

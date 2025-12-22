@@ -1,6 +1,6 @@
-package com.yuricosta.template_spring_boot.security;
+package com.yuricosta.ticket_events_application.security;
 
-import com.yuricosta.template_spring_boot.user.User;
+import com.yuricosta.ticket_events_application.user.User;
 import jakarta.annotation.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

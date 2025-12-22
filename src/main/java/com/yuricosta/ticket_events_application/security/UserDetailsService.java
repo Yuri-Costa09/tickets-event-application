@@ -1,7 +1,7 @@
-package com.yuricosta.template_spring_boot.security;
+package com.yuricosta.ticket_events_application.security;
 
-import com.yuricosta.template_spring_boot.user.User;
-import com.yuricosta.template_spring_boot.user.UserRepository;
+import com.yuricosta.ticket_events_application.user.User;
+import com.yuricosta.ticket_events_application.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

@@ -1,13 +1,13 @@
-package com.yuricosta.template_spring_boot.security.controllers;
+package com.yuricosta.ticket_events_application.security.controllers;
 
-import com.yuricosta.template_spring_boot.security.AuthService;
-import com.yuricosta.template_spring_boot.security.dtos.LoginRequest;
-import com.yuricosta.template_spring_boot.security.dtos.LoginResponse;
-import com.yuricosta.template_spring_boot.security.dtos.RegisterRequest;
-import com.yuricosta.template_spring_boot.security.dtos.RegisterResponse;
-import com.yuricosta.template_spring_boot.shared.ApiResponse;
-import com.yuricosta.template_spring_boot.user.UserRepository;
-import com.yuricosta.template_spring_boot.user.UserService;
+import com.yuricosta.ticket_events_application.security.AuthService;
+import com.yuricosta.ticket_events_application.security.dtos.LoginRequest;
+import com.yuricosta.ticket_events_application.security.dtos.LoginResponse;
+import com.yuricosta.ticket_events_application.security.dtos.RegisterRequest;
+import com.yuricosta.ticket_events_application.security.dtos.RegisterResponse;
+import com.yuricosta.ticket_events_application.shared.ApiResponse;
+import com.yuricosta.ticket_events_application.user.UserRepository;
+import com.yuricosta.ticket_events_application.user.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;

@@ -1,4 +1,4 @@
-package com.yuricosta.template_spring_boot.security;
+package com.yuricosta.ticket_events_application.security;
 
 import com.nimbusds.jose.jwk.JWK;
 import com.nimbusds.jose.jwk.JWKSet;
@@ -36,7 +36,6 @@ public class SecurityConfig {
     public static final String[] PUBLIC_ENDPOINTS = {
             "/api/v1/auth/**"
     };
-
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {

@@ -1,4 +1,4 @@
-package com.yuricosta.template_spring_boot.user;
+package com.yuricosta.ticket_events_application.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

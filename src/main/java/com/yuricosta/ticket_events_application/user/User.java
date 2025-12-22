@@ -1,7 +1,7 @@
-package com.yuricosta.template_spring_boot.user;
+package com.yuricosta.ticket_events_application.user;
 
-import com.yuricosta.template_spring_boot.roles.Role;
-import com.yuricosta.template_spring_boot.shared.BaseEntity;
+import com.yuricosta.ticket_events_application.roles.Role;
+import com.yuricosta.ticket_events_application.shared.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

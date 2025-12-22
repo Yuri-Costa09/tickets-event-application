@@ -1,4 +1,4 @@
-package com.yuricosta.template_spring_boot.security.dtos;
+package com.yuricosta.ticket_events_application.security.dtos;
 
 public record LoginResponse(
         String token,

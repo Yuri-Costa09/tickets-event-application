@@ -1,6 +1,6 @@
-package com.yuricosta.template_spring_boot.security;
+package com.yuricosta.ticket_events_application.security;
 
-import com.yuricosta.template_spring_boot.user.UserRepository;
+import com.yuricosta.ticket_events_application.user.UserRepository;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.jwt.Jwt;

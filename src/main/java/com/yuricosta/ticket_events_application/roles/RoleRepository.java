@@ -1,4 +1,4 @@
-package com.yuricosta.template_spring_boot.roles;
+package com.yuricosta.ticket_events_application.roles;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
