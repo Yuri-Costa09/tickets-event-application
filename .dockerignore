@@ -1,0 +1,60 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+docs/
+TEMPLATE_SETUP.md
+CONTRIBUTING.md
+LICENSE
+
+# IDE
+.idea
+.vscode
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+.settings/
+
+# Build artifacts
+target/
+build/
+out/
+*.class
+*.jar
+*.war
+
+# Environment
+.env
+.env.local
+.env.production
+
+# JWT Keys (will be mounted separately)
+src/main/resources/app.key
+
+# Tests
+src/test/
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose*.yml
+Dockerfile
+.dockerignore
+
+# CI/CD
+.github/
+

@@ -1,0 +1,71 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:18-alpine
+    container_name: template-spring-boot-db-prod
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME:-template_db}
+      POSTGRES_USER: ${DATABASE_USERNAME:-postgres}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-postgres}
+    ports:
+      - "${DATABASE_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    networks:
+      - spring-template-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DATABASE_USERNAME:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: template-spring-boot-app
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      APP_NAME: ${APP_NAME:-template-spring-boot}
+      SERVER_PORT: ${SERVER_PORT:-8080}
+      DATABASE_URL: jdbc:postgresql://postgres:5432/${DATABASE_NAME:-template_db}
+      DATABASE_USERNAME: ${DATABASE_USERNAME:-postgres}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD:-postgres}
+      JWT_PUBLIC_KEY: file:/app/app.pub
+      JWT_PRIVATE_KEY: file:/app/secrets/app.key
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-production}
+    ports:
+      - "${SERVER_PORT:-8080}:8080"
+    volumes:
+      # Mount private key as secret (create this file before running)
+      - ./secrets/app.key:/app/secrets/app.key:ro
+    networks:
+      - spring-template-network
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost:8080/actuator/health",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  spring-template-network:
+    driver: bridge
