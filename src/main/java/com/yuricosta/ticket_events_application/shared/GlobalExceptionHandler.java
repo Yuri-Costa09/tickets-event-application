@@ -35,7 +35,6 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.status(status).body(err);
     }
-
     */
 
     @ExceptionHandler(NotFoundException.class)

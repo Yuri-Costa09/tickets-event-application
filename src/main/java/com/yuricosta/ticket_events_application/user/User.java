@@ -1,5 +1,7 @@
 package com.yuricosta.ticket_events_application.user;
 
+import com.yuricosta.ticket_events_application.tickets.Ticket;
+import com.yuricosta.ticket_events_application.orders.Order;
 import com.yuricosta.ticket_events_application.roles.Role;
 import com.yuricosta.ticket_events_application.shared.BaseEntity;
 import jakarta.persistence.*;
@@ -7,6 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Table(name = "users")
@@ -28,7 +31,13 @@ public class User extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-    protected User() {
+    @OneToMany
+    private List<Ticket> tickets;
+
+    @OneToMany
+    private List<Order> orders;
+
+    public User() {
     }
 
     public User(String name, String email, String password) {
@@ -36,5 +45,4 @@ public class User extends BaseEntity {
         this.email = email;
         this.password = password;
     }
-
 }
