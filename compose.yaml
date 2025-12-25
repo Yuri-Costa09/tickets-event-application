@@ -1,15 +1,15 @@
 services:
   postgres:
     image: "postgres:latest"
-    container_name: template-spring-boot-db
+    container_name: ticket-event-application-db
     environment:
       - "POSTGRES_DB=${DATABASE_NAME:-template_db}"
       - "POSTGRES_USER=${DATABASE_USERNAME:-postgres}"
       - "POSTGRES_PASSWORD=${DATABASE_PASSWORD:-postgres}"
     ports:
-      - "${DATABASE_PORT:-5432}:5432"
+      - "5434:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
     networks:
       - spring-template-network
 
