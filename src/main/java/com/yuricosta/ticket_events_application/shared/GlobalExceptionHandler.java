@@ -12,30 +12,19 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    /*
-
-       Aqui você pode adicionar métodos para tratar exceções globais
-       usando @ExceptionHandler, retornando respostas padronizadas
-       usando a classe ApiResponse.
-
-
-       Exemplo:
-
-       @ExceptionHandler(NOMEDAEXCEPTION.class)
-       public ResponseEntity<StandardError> NOMEDAEXCEPTION(NOMEDAEXEPTION e,
-                                                            HttpServletRequest request) {
-        HttpStatus status = HttpStatus.NOT_FOUND; // CODIGO DE STATUS HTTP
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<StandardError> illegalArgumentException(IllegalArgumentException e,
+                                                                  HttpServletRequest request) {
+        HttpStatus status = HttpStatus.BAD_REQUEST;
         StandardError err = new StandardError(
                 java.time.Instant.now(),
                 status.value(),
-                "MENSAGEM DE ERRO",
+                "Illegal Argument",
                 e.getMessage(),
                 request.getRequestURI()
         );
-
-        return ResponseEntity.status(status).body(err);
+        return ResponseEntity.status(status.value()).body(err);
     }
-    */
 
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<StandardError> notFoundException(NotFoundException e,

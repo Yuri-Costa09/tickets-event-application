@@ -1,18 +1,20 @@
 package com.yuricosta.ticket_events_application.events.models;
 
 import com.yuricosta.ticket_events_application.shared.BaseEntity;
-import com.yuricosta.ticket_events_application.shared.Image;
 import com.yuricosta.ticket_events_application.tickets.Ticket;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "events")
+@Getter @Setter
+@NoArgsConstructor @AllArgsConstructor
 public class Event extends BaseEntity {
     @Column(nullable = false)
     private String title;
@@ -21,12 +23,12 @@ public class Event extends BaseEntity {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Session> sessions;
 
     @Column(nullable = false)
-    private Image banner_url;
+    private String imageUrl;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Ticket> tickets = new ArrayList<>();
 }

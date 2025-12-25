@@ -3,13 +3,20 @@ package com.yuricosta.ticket_events_application.events.models;
 import com.yuricosta.ticket_events_application.events.valueObjects.Address;
 import com.yuricosta.ticket_events_application.shared.BaseEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO: Add something like "isActive" field to disable filled or inactive sessions.
 @Entity
 @Table(name = "sessions")
+@Getter @Setter
+@NoArgsConstructor @AllArgsConstructor
 public class Session extends BaseEntity {
 
     @Column

@@ -5,8 +5,12 @@ import com.yuricosta.ticket_events_application.events.models.TicketBatch;
 import com.yuricosta.ticket_events_application.shared.BaseEntity;
 import com.yuricosta.ticket_events_application.user.User;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Table(name = "tickets")
+@Getter @Setter
 public class Ticket extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -2,11 +2,17 @@ package com.yuricosta.ticket_events_application.events.models;
 
 import com.yuricosta.ticket_events_application.shared.BaseEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "ticket_batches")
+@Getter @Setter
+@NoArgsConstructor @AllArgsConstructor
 public class TicketBatch extends BaseEntity {
 
     @Column(nullable = false)

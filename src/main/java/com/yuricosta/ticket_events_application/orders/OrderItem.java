@@ -2,14 +2,15 @@ package com.yuricosta.ticket_events_application.orders;
 
 import com.yuricosta.ticket_events_application.events.models.TicketBatch;
 import com.yuricosta.ticket_events_application.shared.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
 @Entity
+@Table(name = "order_items")
+@Getter @Setter
 public class OrderItem extends BaseEntity {
 
     @ManyToOne
