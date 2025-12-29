@@ -17,6 +17,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
+// TODO: Refactor DTOs to not query not needed field (e.g. tickets when querying event details)
 @Service
 @Slf4j
 public class EventService {
