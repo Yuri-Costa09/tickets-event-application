@@ -1,5 +1,7 @@
-package com.yuricosta.ticket_events_application.events.models;
+package com.yuricosta.ticket_events_application.sessions;
 
+import com.yuricosta.ticket_events_application.events.models.Event;
+import com.yuricosta.ticket_events_application.events.models.TicketBatch;
 import com.yuricosta.ticket_events_application.events.valueObjects.Address;
 import com.yuricosta.ticket_events_application.shared.BaseEntity;
 import jakarta.persistence.*;
@@ -25,13 +27,22 @@ public class Session extends BaseEntity {
     @Column
     private LocalDateTime startTime;
 
-    @OneToMany
+    @OneToMany(mappedBy = "session", fetch = FetchType.LAZY)
     private List<TicketBatch> ticketBatches = new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "event_id")
     private Event event;
 
     @Embedded
     private Address address;
+
+    static public Session create(String title, LocalDateTime startTime, Event event, Address address) {
+        Session session = new Session();
+        session.setTitle(title);
+        session.setStartTime(startTime);
+        session.setEvent(event);
+        session.setAddress(address);
+        return session;
+    }
 }

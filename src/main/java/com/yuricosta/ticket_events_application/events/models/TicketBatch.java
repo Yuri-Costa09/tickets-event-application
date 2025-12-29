@@ -1,5 +1,6 @@
 package com.yuricosta.ticket_events_application.events.models;
 
+import com.yuricosta.ticket_events_application.sessions.Session;
 import com.yuricosta.ticket_events_application.shared.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,7 +24,7 @@ public class TicketBatch extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "session_id")
-    private Session sessionId;
+    private Session session;
 
     @Column(nullable = false)
     private int availableQuantity;

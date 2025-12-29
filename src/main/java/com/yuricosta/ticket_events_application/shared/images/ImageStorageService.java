@@ -10,6 +10,7 @@ import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
+// TOOD: Implement image entity.
 @Service
 public class ImageStorageService {
 

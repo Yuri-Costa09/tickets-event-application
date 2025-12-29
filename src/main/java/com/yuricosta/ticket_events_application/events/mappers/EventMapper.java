@@ -2,11 +2,11 @@ package com.yuricosta.ticket_events_application.events.mappers;
 
 import com.yuricosta.ticket_events_application.events.dtos.EventResponseDto;
 import com.yuricosta.ticket_events_application.events.models.Event;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.factory.Mappers;
+import com.yuricosta.ticket_events_application.sessions.SessionMapper;
+import org.mapstruct.*;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = { SessionMapper.class })
 public interface EventMapper {
+
     EventResponseDto toDto(Event event);
 }

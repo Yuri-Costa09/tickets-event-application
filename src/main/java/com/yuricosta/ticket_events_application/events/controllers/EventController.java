@@ -3,6 +3,7 @@ package com.yuricosta.ticket_events_application.events.controllers;
 import com.yuricosta.ticket_events_application.events.dtos.CreateEventRequest;
 import com.yuricosta.ticket_events_application.events.dtos.EventResponseDto;
 import com.yuricosta.ticket_events_application.events.services.EventService;
+import com.yuricosta.ticket_events_application.sessions.SessionResponseDto;
 import com.yuricosta.ticket_events_application.shared.ApiResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -17,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @ApiResponses({
@@ -42,6 +44,19 @@ public class EventController {
                 true,
                 "Events retrieved successfully",
                 events
+        );
+        return ResponseEntity.ok(apiResponse);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ApiResponse<EventResponseDto>> getEvent(
+            @PathVariable UUID id
+    ) {
+        EventResponseDto event = eventService.getEventById(id);
+        ApiResponse<EventResponseDto> apiResponse = new ApiResponse<>(
+                true,
+                "Event retrieved successfully",
+                event
         );
         return ResponseEntity.ok(apiResponse);
     }

@@ -5,6 +5,7 @@ import com.yuricosta.ticket_events_application.events.dtos.EventResponseDto;
 import com.yuricosta.ticket_events_application.events.mappers.EventMapper;
 import com.yuricosta.ticket_events_application.events.models.Event;
 import com.yuricosta.ticket_events_application.events.repositories.EventRepository;
+import com.yuricosta.ticket_events_application.shared.errors.NotFoundException;
 import com.yuricosta.ticket_events_application.shared.images.ImageStorageService;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @Service
@@ -41,6 +43,17 @@ public class EventService {
         return events.stream()
                 .map(eventMapper::toDto)
                 .toList();
+    }
+
+    public EventResponseDto getEventById(UUID id) {
+        log.info("Retrieving event with ID: {}", id);
+        Event event = eventRepository.findById(id).orElseThrow(
+                () -> {
+                    log.warn("Event not found with ID: {}", id);
+                    return new NotFoundException("Event not found");
+                }
+        );
+        return eventMapper.toDto(event);
     }
 
     @Transactional
