@@ -21,6 +21,10 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
+// TODO: Refactor DTOs to not query not needed field (e.g. tickets when querying event details)
+// TODO: Refactor "listAll" to return paginated results
+// TODO: Refactor "listAll" to allow filtering by title, date, etc.
+// TODO: Refactor "listAll" to not query unneeded relations (e.g. sessions, tickets, etc.)
 @ApiResponses({
         @io.swagger.v3.oas.annotations.responses.ApiResponse(
                 responseCode = "201",
